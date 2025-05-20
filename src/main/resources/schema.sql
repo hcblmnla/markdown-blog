@@ -1,13 +1,13 @@
 create table author
 (
-    id    bigint auto_increment primary key,
+    id    bigint auto_increment not null primary key,
     login varchar(100) not null unique,
     name  varchar(100) not null
 );
 
 create table topic
 (
-    id        bigint auto_increment primary key,
+    id        bigint auto_increment not null primary key,
     author_id bigint       not null,
     title     varchar(100) not null unique,
     foreign key (author_id) references author (id) on delete cascade
@@ -15,7 +15,7 @@ create table topic
 
 create table post
 (
-    id         bigint auto_increment primary key,
+    id         bigint auto_increment not null primary key,
     topic_id   bigint       not null,
     title      varchar(100) not null unique,
     content    clob         not null,
@@ -25,7 +25,7 @@ create table post
 
 create table tag
 (
-    id   bigint auto_increment primary key,
+    id   bigint auto_increment not null primary key,
     name varchar(100) not null unique
 );
 
