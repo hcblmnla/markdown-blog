@@ -28,7 +28,7 @@ data class Post(
     val title: String,
     val content: String,
     @Column("updated_at")
-    val updatedAt: LocalDateTime? = null
+    val updatedAt: LocalDateTime = LocalDateTime.now()
 )
 
 @Table("tag")
