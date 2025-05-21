@@ -7,6 +7,7 @@ import org.example.mdblog.dto.TopicDto
 
 interface AuthorService {
     suspend fun createOrGetAuthor(login: String, name: String): AuthorDto
+    suspend fun getAuthor(login: String): AuthorDto?
     suspend fun deleteAuthor(login: String): Boolean
 }
 

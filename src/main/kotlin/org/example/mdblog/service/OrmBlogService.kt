@@ -20,6 +20,11 @@ class OrmAuthorService(private val authorRepository: AuthorRepository) : AuthorS
         return asAuthorDto(author)
     }
 
+    @Transactional(readOnly = true)
+    override suspend fun getAuthor(login: String): AuthorDto? {
+        return authorRepository.findByLogin(login)?.let { asAuthorDto(it) }
+    }
+
     override suspend fun deleteAuthor(login: String): Boolean {
         val author = authorRepository.findByLogin(login) ?: return false
         authorRepository.delete(author)
