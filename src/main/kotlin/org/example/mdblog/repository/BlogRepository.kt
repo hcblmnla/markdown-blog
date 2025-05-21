@@ -32,4 +32,5 @@ interface TagRepository : CoroutineCrudRepository<Tag, Long> {
 @Repository
 interface PostTagRepository : CoroutineCrudRepository<PostTag, Long> {
     suspend fun findAllByTagId(tagId: Long): Flow<PostTag>
+    suspend fun findAllByPostId(postId: Long): Flow<PostTag>
 }
