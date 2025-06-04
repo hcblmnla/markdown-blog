@@ -1,6 +1,18 @@
-**Quick-and-dirty solution**:
+# Markdown blog
 
-- no attempts to fix N+1 e.g.
-- createOrGet simplifications
+## Quick-and-dirty solution
 
-and this is a demonstration of how REST is both simple and slow
+Simple REST API for blog administration:
+
+- no attempts to fix `N+1` e.g.
+- `createOrGet` simplifications
+
+and this is also a demonstration of how REST is both simple and slow
+
+## Async
+
+Using `CoroutineCrudRepository` from Spring Boot Data R2DBC
+
+## TODO
+
+- [ ] markdown rendering (parsing to HTML)
