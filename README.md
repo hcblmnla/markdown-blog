@@ -1,13 +1,9 @@
 # Markdown blog
 
-## Quick-and-dirty solution
+## Simple API
 
-Simple REST API for blog administration:
-
-- no attempts to fix `N+1` e.g.
-- `createOrGet` simplifications
-
-and this is also a demonstration of how REST is both simple and slow
+- REST for development speed
+- no migrations, no `N+1` fixes ..
 
 ## Async
 
@@ -16,3 +12,4 @@ Using `CoroutineCrudRepository` from Spring Boot Data R2DBC
 ## TODO
 
 - [ ] markdown rendering (parsing to HTML)
+- [ ] Kafka supporting (using only `testcontainers`)
