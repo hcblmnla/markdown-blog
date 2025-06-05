@@ -81,6 +81,7 @@ class PostController(
     private val topicController: TopicController,
     private val postService: PostService
 ) {
+
     @GetMapping
     suspend fun getAllPosts(
         @PathVariable login: String,
