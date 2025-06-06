@@ -25,7 +25,6 @@ spring:
 kafka:
   enabled: false
   topics:
-    all-posts: local.posts
     private-posts: local.private.posts
     public-posts: local.public.posts
   partitions: 2

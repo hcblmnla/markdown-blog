@@ -5,6 +5,11 @@ import org.springframework.kafka.annotation.KafkaListener
 
 class PostConsumer {
 
+    companion object {
+        const val PRIVATE = "local.private.posts"
+        const val PUBLIC = "local.public.posts"
+    }
+
     private val consumed: ArrayList<PostDto> = ArrayList()
     private val consumedPrivate: ArrayList<PostDto> = ArrayList()
 
@@ -15,14 +20,14 @@ class PostConsumer {
         get() = consumedPrivate
 
     @KafkaListener(
-        topics = ["\${kafka.topics.all-posts}"],
+        topics = [PRIVATE, PUBLIC],
         groupId = "all-posts-group",
         containerFactory = "postListenerContainerFactory"
     )
     fun consumeAllPosts(post: PostDto) = consumed.add(post)
 
     @KafkaListener(
-        topics = ["\${kafka.topics.private-posts}"],
+        topics = [PRIVATE],
         groupId = "private-posts-group",
         containerFactory = "postListenerContainerFactory"
     )

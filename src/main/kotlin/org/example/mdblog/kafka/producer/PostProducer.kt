@@ -18,9 +18,7 @@ class PostProducer(
         val post = postGenerator.nextPost()
         val stringId = post.id.toString()
 
-        kafkaTemplate.send(topics.allPosts, stringId, post)
         kafkaTemplate.send(topic, stringId, post)
-
         log.info("{} post with id={} sent", loggingName, stringId)
     }
 

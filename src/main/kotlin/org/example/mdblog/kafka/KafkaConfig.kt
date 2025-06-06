@@ -25,8 +25,7 @@ import org.springframework.kafka.support.serializer.JsonSerializer
 @ConditionalOnProperty(prefix = "kafka", name = ["enabled"], havingValue = "true")
 data class KafkaConfig(
     val enabled: Boolean,
-    @get:Bean
-    val topics: KafkaTopics,
+    @get:Bean val topics: KafkaTopics,
     val partitions: Int,
     val replicas: Int,
 ) {
@@ -42,9 +41,6 @@ data class KafkaConfig(
         .partitions(partitions)
         .replicas(replicas)
         .build()
-
-    @Bean
-    fun allPostsTopic(): NewTopic = topic(topics.allPosts)
 
     @Bean
     fun privatePostsTopic(): NewTopic = topic(topics.privatePosts)
@@ -98,7 +94,6 @@ data class KafkaConfig(
     fun postConsumer(): PostConsumer = PostConsumer()
 
     class KafkaTopics(
-        val allPosts: String,
         val privatePosts: String,
         val publicPosts: String,
     )
