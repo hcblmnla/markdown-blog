@@ -3,7 +3,7 @@
 ## Simple API
 
 - REST for development speed
-- no migrations, no `N+1` fixes ..
+- no migrations, no `N+1` fixes due to laziness
 
 ## Async
 
