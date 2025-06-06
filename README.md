@@ -3,6 +3,7 @@
 ## Simple API
 
 - REST for development speed
+- idempotent `POST`
 - no migrations, no `N+1` fixes due to laziness
 
 ## Async
