@@ -1,11 +1,11 @@
-create table author
+create table if not exists author
 (
     id    bigint auto_increment not null primary key,
     login varchar(100) not null unique,
     name  varchar(100) not null
 );
 
-create table topic
+create table if not exists topic
 (
     id        bigint auto_increment not null primary key,
     author_id bigint       not null,
@@ -13,7 +13,7 @@ create table topic
     foreign key (author_id) references author (id) on delete cascade
 );
 
-create table post
+create table if not exists post
 (
     id         bigint auto_increment not null primary key,
     topic_id   bigint       not null,
@@ -23,13 +23,13 @@ create table post
     foreign key (topic_id) references topic (id) on delete cascade
 );
 
-create table tag
+create table if not exists tag
 (
     id   bigint auto_increment not null primary key,
     name varchar(100) not null unique
 );
 
-create table post_tags
+create table if not exists post_tags
 (
     post_id bigint not null,
     tag_id  bigint not null,

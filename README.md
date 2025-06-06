@@ -13,4 +13,5 @@ Using `CoroutineCrudRepository` from Spring Boot Data R2DBC
 ## TODO
 
 - [ ] markdown rendering (parsing to HTML)
-- [ ] Kafka supporting (using only `testcontainers`)
+- [x] Kafka supporting (using only [testcontainers](src/test/kotlin/org/example/mdblog/kafka/KafkaIntegrationTest.kt))
+- [ ] Kafka streams supporting

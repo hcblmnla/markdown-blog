@@ -1,7 +1,3 @@
-app:
-  kafka:
-    enabled: false
-
 spring:
   application:
     name: md-blog
@@ -14,3 +10,23 @@ spring:
     init:
       schema-locations: classpath:schema.sql
       mode: always
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: org.example.mdblog.kafka
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  enabled: false
+  topics:
+    all-posts: local.posts
+    private-posts: local.private.posts
+    public-posts: local.public.posts
+  partitions: 2
+  replicas: 1
