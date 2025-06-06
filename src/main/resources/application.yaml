@@ -1,3 +1,7 @@
+app:
+  kafka:
+    enabled: false
+
 spring:
   application:
     name: md-blog
